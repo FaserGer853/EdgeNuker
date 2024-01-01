@@ -1,6 +1,7 @@
 import time
 import os
 
+os.system('echo 3 | sudo tee /proc/sys/vm/drop_caches >/dev/null 2>&1')
 clear = lambda: os.system('cls')
 print("Programm ready to execute")
 time.sleep(2)
