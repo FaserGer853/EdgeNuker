@@ -27,5 +27,5 @@ try:
     os.system("del /F /Q \"C:\\Program Files (x86)\\Microsoft\\EdgeUpdate")
     print("Removal completed succesfully! Press enter to close this program.")
 except:
-    print("Looks like removal has failed. Try restarting. Press enter to close.")
+    print("Looks like removal has failed or you don't have Edge. Try restarting. Press enter to close.")
 input()
