@@ -3,7 +3,7 @@ import os
 from elevate import elevate
 
 def is_elevated():
-    return os.getuid() == 0
+    return os.getpid() == 0
 
 clear = lambda: os.system('cls')
 print('''I as a creator(sggzhs) not responsible for any damages caused by this program. It is meant only to delete Edge and Edge Webview 2. Press Enter to proceed or close this application.''')
