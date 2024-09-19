@@ -1,5 +1,8 @@
 # The   ![edgenuker](https://github.com/FaserGer853/EdgeNuker/assets/90092906/df584d42-ea55-49c9-9c73-46cfeba3dde1) EdgeNuker
 
-This program allow to delete Microsoft Edge files with ease.
+This program remove Edge and msedgewebview2 files.
 
-You can also modify for your requirements in the source code for a specific version.
+# Installation
+
+1. Install `elevate` package, can be installed by `pip install elevate`.
+2. Download EdgeNuker and start it with python. It will automatically remove edge files and notify you about the results.
