@@ -1,32 +1,31 @@
 import time
 import os
+from elevate import elevate
 
-os.system('echo 3 | sudo tee /proc/sys/vm/drop_caches >/dev/null 2>&1')
+def is_elevated():
+    return os.getuid() == 0
+
 clear = lambda: os.system('cls')
-print("Programm ready to execute")
-time.sleep(2)
-clear()
-os.system("pause")
-clear()
-print("Are you sure to run this program?")
-time.sleep(2)
-clear()
-os.system("pause")
-clear()
-print("The creator (sggzhs) of this software is not responsible for the damage caused")
-time.sleep(2)
-clear()
-os.system("pause")
-clear()
+print('''I as a creator(sggzhs) not responsible for any damages caused by this program. It is meant only to delete Edge and Edge Webview 2. Press Enter to proceed or close this application.''')
+input()
 
-print("You can safely remove the edge files now.")
-print("Close the program when you will finish.")
-while True:
+if not is_elevated():
+    print("Additional administrator privileges are required. Press enter to request.")
+    input()
     try:
-        os.system("taskkill /IM msedgewebview2.exe /F")
-        os.system("taskkill /IM msedge.exe /F")
-        os.system("taskkill /IM zWebview2Agent.exe /F")
-        os.system("del /F /Q \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\119.0.2151.44\\EBWebView\\x86\\EmbeddedBrowserWebView.dll")
-        os.system("del /F /Q \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\119.0.2151.44\\EBWebView\\x64\\EmbeddedBrowserWebView.dll")
-    except Exception:
-        pass
+        elevate()
+    except:
+        print("Something gone wrong during request.")
+
+try:
+    print("Starting removal...")
+    os.system("taskkill /IM msedgewebview2.exe /F")
+    os.system("taskkill /IM msedge.exe /F")
+    os.system("taskkill /IM zWebview2Agent.exe /F")
+    os.system("del /F /Q \"C:\\Program Files (x86)\\Microsoft\\Edge")
+    os.system("del /F /Q \"C:\\Program Files (x86)\\Microsoft\\EdgeCore")
+    os.system("del /F /Q \"C:\\Program Files (x86)\\Microsoft\\EdgeUpdate")
+    print("Removal completed succesfully! Press enter to close this program.")
+except:
+    print("Looks like removal has failed. Try restarting. Press enter to close.")
+input()
